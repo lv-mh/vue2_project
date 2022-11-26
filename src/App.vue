@@ -1,14 +1,17 @@
 <template>
   <div id="app">
     <!-- <img src="./assets/logo.png"> -->
-    <header class="header">
+    <!-- <header class="header">
       <router-link to="/main" >go to main</router-link>
       <router-link to="/news" >go to news</router-link>
       <router-link to="/home" >go to HOME</router-link>
       <router-link to="/user" >go to user</router-link>
 
     </header>
-    <router-view/>
+    <router-view/> -->
+
+    <sidebar-menu :menu="menu" />
+
     <!-- <v-home message="hello world" ref="ahome"></v-home>
     <br><hr>
     <v-news></v-news> -->
@@ -16,10 +19,10 @@
 </template>
 
 <script>
-import Home from './components/Home';
-import News from './components/News';
+/* import Home from './components/Home';
+import News from './components/News'; */
 
-export default {
+/* export default {
   name: 'App',
   components: {
     'v-home': Home,
@@ -35,7 +38,41 @@ export default {
     // console.info(this.$refs.ahome.title)
   }
 };
-</script>
+*/
+export default {
+  name: 'App',
+  data() {
+      return {
+          menu: [
+              {
+                  header: true,
+                  title: 'Main Navigation',
+                  hiddenOnCollapse: true
+              },
+              {
+                  href: '/',
+                  title: 'Dashboard',
+                  icon: 'vsm--icon fa fa-download'
+              },
+              {
+                  href: '/charts',
+                  title: 'Charts',
+                  icon: { 
+                    element: 'span',
+                    class: 'fa fa-user'
+                    },
+                  child: [
+                      {
+                          href: '/charts/sublink',
+                          title: 'Sub Link'
+                      }
+                  ]
+              }
+          ]
+      }
+  }
+}
+</script> 
 
 <style lang="scss">
 #app {

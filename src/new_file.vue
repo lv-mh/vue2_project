@@ -1,5 +1,4 @@
-<template>
-</template>
+<template/>
 
 <script>
   export default {
@@ -14,7 +13,7 @@
       };
     },
     mounted () {
-      var b= "dfg"
+      var b= 'dfg';
     }
   };
 </script>
